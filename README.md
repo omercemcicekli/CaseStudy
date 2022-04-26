@@ -27,13 +27,12 @@ MetricManager has a Flow that listens for image loading times with success or er
 gathering enough data, it sends these data to API service. You could also send every time a metric collected but that would use network 
 resources unnecessarily. Though you can change this logic with relative ease.
 
-### Testing
+### Testing
 
 Custom attribution for automatic skipping is available for AutomaticScrollingActivity. You can observe metric system this way without any input, starting 
 AutomaticScrollingActivity should be enough. 
 
 ManualScrollingActivity as the name states will need user swipe to snap next or previous items.
-
 
 Thank you, it was fun.
 

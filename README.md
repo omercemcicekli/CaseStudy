@@ -7,7 +7,7 @@ Project consists of two modules;
 
 App module contains launcher activity with two activities for testing purposes.
 
-Assignment module containts custom view along with the metric service alongside with it.
+Assignment module containts custom view along with the metric service.
 
 ## Assignment
 

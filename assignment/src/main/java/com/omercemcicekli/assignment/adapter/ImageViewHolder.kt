@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.omercemcicekli.assignment.R
 import com.omercemcicekli.assignment.data.ImageData
 import com.omercemcicekli.assignment.extensions.load
-import com.omercemcicekli.assignment.metrics.MetricManager.Companion.metricFlow
+import com.omercemcicekli.assignment.metrics.MetricManager.Companion.metricDataFlow
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -15,6 +15,8 @@ internal class ImageViewHolder(view: View, private val scope: CoroutineScope): R
     private val ivImage = view.findViewById<AppCompatImageView>(R.id.iv_image)
 
     fun bind(imageData: ImageData) {
-        ivImage.load(imageData.url) { timeElapsed -> scope.launch { metricFlow.emit(timeElapsed) } }
+        ivImage.load(imageData) { timeElapsed ->
+            scope.launch { metricDataFlow.emit(timeElapsed) }
+        }
     }
 }

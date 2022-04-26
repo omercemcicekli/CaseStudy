@@ -1,5 +1,7 @@
 package com.omercemcicekli.assignment.metrics
 
+import android.util.Log
+import com.omercemcicekli.assignment.constants.Constants.TAG
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
@@ -7,7 +9,7 @@ import kotlinx.coroutines.launch
 internal class MetricManager(private val scope: CoroutineScope) {
 
     companion object {
-        val metricFlow = MutableSharedFlow<Long>()
+        val metricDataFlow = MutableSharedFlow<MetricData>()
     }
 
     /* Basically listen for the view holder image loading time data, and send it for every 10
@@ -15,18 +17,24 @@ internal class MetricManager(private val scope: CoroutineScope) {
     */
     fun listenForMetricData() {
         scope.launch {
-            val timeData = mutableListOf<Long>()
-            metricFlow.collect {
+            val metricData = mutableListOf<MetricData>()
 
-                timeData.add(it)
+            metricDataFlow.collect {
 
-                if(timeData.size % 10 == 0) {
+                Log.d(TAG, "Metric data for image loading: $it")
+
+                metricData.add(it)
+
+                if(isPowerOfTen(metricData)) {
+                    Log.d(TAG, "Sending metric data to service: $metricData")
                     sendMetricsToService()
-                    timeData.clear()
+                    metricData.clear()
                 }
             }
         }
     }
+
+    private fun isPowerOfTen(metricData: List<MetricData>) = metricData.size % 10 == 0
 
     private fun sendMetricsToService() {
 

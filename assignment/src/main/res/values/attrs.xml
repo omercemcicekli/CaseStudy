@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="AssignmentView">
+        <attr name="automaticSkip" format="boolean" />
+        <attr name="automaticSkipDelay" format="integer" />
+    </declare-styleable>
+</resources>

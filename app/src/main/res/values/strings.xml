@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CaseStudy</string>
+    <string name="automatic_scrolling">Automatic Scrolling</string>
+    <string name="manual_scrolling">Manual Scrolling</string>
 </resources>

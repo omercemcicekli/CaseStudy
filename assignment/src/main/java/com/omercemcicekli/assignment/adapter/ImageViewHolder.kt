@@ -15,8 +15,8 @@ internal class ImageViewHolder(view: View, private val scope: CoroutineScope): R
     private val ivImage = view.findViewById<AppCompatImageView>(R.id.iv_image)
 
     fun bind(imageData: ImageData) {
-        ivImage.load(imageData) { timeElapsed ->
-            scope.launch { metricDataFlow.emit(timeElapsed) }
+        ivImage.load(imageData) { metricData ->
+            scope.launch { metricDataFlow.emit(metricData) }
         }
     }
 }

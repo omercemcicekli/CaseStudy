@@ -2,6 +2,7 @@ package com.omercemcicekli.assignment
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.omercemcicekli.assignment.adapter.ImageAdapter
 import com.omercemcicekli.assignment.constants.Constants.DEFAULT_SKIP_DELAY
+import com.omercemcicekli.assignment.constants.Constants.TAG
 import com.omercemcicekli.assignment.data.ImageData
 import com.omercemcicekli.assignment.extensions.executeInMain
 import com.omercemcicekli.assignment.metrics.MetricManager
